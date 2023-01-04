@@ -1,0 +1,172 @@
+
+<!-- Header -->
+<header id="header">
+  <div class="header">
+    <div class="header_in">
+      <div class="top-nav ">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li>  	<a href="index.html"><img src="https://www.ingressdefi.it/assets/user/img/logo.png" style="width: 170px;height:50px;"></a></li>
+          <li><a class="creative_link" href="#home">Home</a></li>
+          <li *ngIf="accountShort" class="nav-item"><a class="creative_link" [routerLink]="'/dashboard'">Dashboard </a></li>
+          <li class="active"> <a class="creative_link" [routerLink]="'/market'">Collection<span class="sr-only">(current)</span></a></li>
+          <li class=""> <a class="creative_link" [routerLink]="'/blogs'">Blogs</a> </li>
+
+          <li class=""> <a class="creative_link" [routerLink]="'/features'">Features</a> </li>
+          <li class=""> <a class="creative_link" [routerLink]="'/search'">Search</a> </li>
+          <li *ngIf="balance" class="nav-item"><a class="nav-link" [routerLink]="">Bal {{ balance | number : '1.4-4' }} </a></li>
+          <li *ngIf="accountShort" class="nav-item"><a class="nav-link" [routerLink]=""> {{ accountShort }} </a></li>
+
+        </ul>
+      </div>
+<div class="wallet">
+<!--  <li *ngIf="isLogin"><a href="">ddsfsdfdsf</a></li>-->
+  <ul style="list-style-type: none">
+
+    <li *ngIf="isLogin" class=""><a class="metaportal_fn_button wallet_opener" (click)="logout()" [routerLink]=""> Logout </a></li>
+
+    <li *ngIf="!isLogin" class=""> <a class="metaportal_fn_button wallet_opener" href="#" data-toggle="modal" (click)="openModal(template)">Connect To Wallet</a> </li>
+
+  </ul>
+
+</div>
+
+<!--      <div class="nav">-->
+<!--        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">-->
+<!--          <li *ngIf="accountShort" class="nav-item"><a class="nav-link" [routerLink]="'/dashboard'">Dashboard </a></li>-->
+<!--          <li class="nav-item active"> <a class="nav-link" [routerLink]="'/market'">Market <span class="sr-only">(current)</span></a></li>-->
+<!--          <li class="nav-item"> <a class="creative_link" [routerLink]="'/activity'">Activity</a> </li>-->
+<!--          <li class="nav-item"> <a class="nav-link" [routerLink]="'/features'">Features</a> </li>-->
+<!--          <li class="nav-item"> <a class="creative_link" [routerLink]="'/search'">Search</a> </li>-->
+<!--          <li *ngIf="balance" class="nav-item"><a class="nav-link" [routerLink]="">Bal {{ balance | number : '1.4-4' }} </a></li>-->
+<!--          <li *ngIf="accountShort" class="nav-item"><a class="nav-link" [routerLink]=""> {{ accountShort }} </a></li>-->
+<!--          <li *ngIf="isLogin" class="nav-item"><a class="nav-link" (click)="logout()" [routerLink]=""> Logout </a></li>-->
+<!--          <li *ngIf="!isLogin" class="nav-item"> <a class="nav-link" href="#" data-toggle="modal" (click)="openModal(template)">Sign In</a> </li>-->
+<!--        </ul>-->
+<!--        <ul>-->
+<!--          <li><a class="creative_link" href="#home">Home</a></li>-->
+<!--          <li><a class="creative_link" href="#about">About</a></li>-->
+<!--          <li><a class="creative_link" href="#collection">Collection</a></li>-->
+<!--          <li><a class="creative_link" href="#news">Blog</a></li>-->
+<!--          <li><a class="creative_link" href="#contact">Contact</a></li>-->
+<!--        </ul>-->
+<!--      </div>-->
+
+<!--      <div class="wallet">-->
+<!--        <li *ngIf="!isLogin" class="nav-item"> <a class="nav-link" href="#" data-toggle="modal" (click)="openModal(template)">Sign In</a> </li>-->
+<!--        <li  ><a  class="metaportal_fn_button wallet_opener" href="#" data-toggle="modal" (click)="openModal(template1)"><span>Connect To Wallet</span></a></li>-->
+
+<!--      </div>-->
+
+    </div>
+  </div>
+</header>
+
+<!-- !Header -->
+<!--<nav class="navbar navbar-expand-lg fixed-top home-header">-->
+<!--  <a class="navbar-brand" [routerLink]="'/'"><img src="assets/images/logo.png" class="img-fluid"></a>-->
+<!--  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">-->
+<!--    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">-->
+<!--      <li *ngIf="accountShort" class="nav-item"><a class="nav-link" [routerLink]="'/dashboard'">Dashboard </a></li>-->
+<!--      <li class="nav-item active"> <a class="nav-link" [routerLink]="'/market'">Market <span class="sr-only">(current)</span></a></li>-->
+<!--      <li class="nav-item"> <a class="creative_link" [routerLink]="'/activity'">Activity</a> </li>-->
+<!--      <li class="nav-item"> <a class="nav-link" [routerLink]="'/features'">Features</a> </li>-->
+<!--      <li class="nav-item"> <a class="creative_link" [routerLink]="'/search'">Search</a> </li>-->
+<!--      <li *ngIf="balance" class="nav-item"><a class="nav-link" [routerLink]="">Bal {{ balance | number : '1.4-4' }} </a></li>-->
+<!--      <li *ngIf="accountShort" class="nav-item"><a class="nav-link" [routerLink]=""> {{ accountShort }} </a></li>-->
+<!--      <li *ngIf="isLogin" class="nav-item"><a class="nav-link" (click)="logout()" [routerLink]=""> Logout </a></li>-->
+<!--      <li *ngIf="!isLogin" class="nav-item"> <a class="nav-link" href="#" data-toggle="modal" (click)="openModal(template)">Sign In</a> </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <img src="assets/images/toggler-icon.png" class="img-fluid">-->
+<!--  </button>-->
+
+<!--</nav>-->
+
+
+
+<ng-template #template>
+<!--right modal-->
+
+      <div class="modal-content ModalRight">
+
+
+
+        <div class="modal-body ModalBody">
+          <h3>CONNECT WALLET</h3>
+          <p>Connect with one of our available wallet providers or create a new one.</p>
+          <div class="list_holder">
+            <ul class="metaportal_fn_items">
+              <li>
+                <div class="item">
+                  <a (click)="connctEwallet('metamask', 'login')"  routerLink="" >
+
+
+                  </a>
+                  <span class="icon">
+							<img src="assets/img/wallet/metamask.png" alt="">
+						</span>
+                  <span class="text">Metamask</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list_holder">
+            <ul class="metaportal_fn_items">
+              <li>
+                <div class="item">
+                  <a (click)="connctEwallet('trustwallet', 'login')"   routerLink="" >
+
+
+                  </a>
+                  <span class="icon">
+                    <img src="assets/img/wallet/walletconnect.png" alt="">
+						      </span>
+                  <span class="text">wallet connect</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div><!-- modal-content -->
+
+
+<ng-template #template1>
+  <div class="modal-content ModalLeft">
+    <div class="modal-body ModalBodyL">
+      <div class="list_holder">
+        <ul class="metaportal_fn_items">
+          <li>
+            <div class="item">
+              <a href="https://opensea.io/" target="_blank"></a>
+              <span class="icon">
+							<img src="assets/img/market/opensea.png" alt="">
+						</span>
+              <span class="text">Opensea</span>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <a href="https://discord.com/" target="_blank"></a>
+              <span class="icon">
+							<img src="assets/img/market/discord.png" alt="">
+						</span>
+              <span class="text">Discord</span>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <a href="https://discord.com/" target="_blank"></a>
+              <span class="icon">
+							<img src="assets/img/market/discord.png" alt="">
+						</span>
+              <span class="text">PicassoDefi</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ng-template>

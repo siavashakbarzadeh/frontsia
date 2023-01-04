@@ -1,0 +1,32 @@
+
+<!-- Nav tabs -->
+<div class="d-flex justify-content-center border" style="margin-top: 90px; margin-bottom: 30px;">
+<!--  <h3 class="section-title text-dark mb-4">Trade</h3>-->
+    <ul class="nav nav-tabs tab-cnt row">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" (click)="changeTab('Swap')" href="#swap">Swap</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" (click)="changeTab('Liquidity')" href="#liquidity">Liquidity</a>
+      </li>
+    </ul>
+</div>
+
+
+<!-- Tab panes -->
+<div class="tab-content row border mt-3">
+  <div class="tab-pane container active" id="swap">
+    <app-swap></app-swap>
+  </div>
+
+  <div class="tab-pane container fade" id="liquidity">
+    <ng-container *ngIf="!isShowImportPool">
+        <app-liquidity (showImportPool)="showImportPool($event)" *ngIf="activeTab == 'Liquidity'">
+        </app-liquidity>
+    </ng-container>
+    <ng-container *ngIf="isShowImportPool">
+        <app-import-poll (showImportPool)="showImportPool($event)"></app-import-poll>
+    </ng-container>
+  </div>
+
+</div>

@@ -1,0 +1,114 @@
+<style>
+
+</style>
+<section id="dashboard container-fluid border" style="margin-top: 90px;">
+   <div class="swiper-slidedeck row ">
+     <div class="swiper-slide mr-3  col-md-4 col-sm-12">
+       <div class="item ">
+<!--         <span class="icon"></span>-->
+         <span class="phase bg-warning text-dark font-weight-bold">Farms & Staking</span>
+         <div class="title p-3  ">
+           <div class="cardcakevalue "> {{dataService.projectDetails.tokenName}} to Harvest :
+             <span class="text-warning ml-1">{{Homepagevariable.governanceTokenHarvset | number: dataService.fixNumber}}</span></div>
+           <div class="LockedTxt"> <i class="fa  text-warning mr-1 fa-lock"></i>Locked </div>
+         </div>
+         <div class="title p-3">
+           <div class="cardcakevalue"> {{dataService.projectDetails.tokenName}} in Wallet :
+             <span class="text-warning ml-1">{{governanceTokenBalance | number: dataService.fixNumber}}</span></div>
+           <div class="LockedTxt"> <i class="fa fa-lock mr-1 text-warning"></i>Locked </div>
+         </div>
+
+         <div class="wallet ">
+           <ul (click)="goto('staking')" class="mx-3"
+               type="button">
+             <li class="metaportal_fn_button wallet_opener" *ngIf="!dataService.metaDeatails.isMetaLogin">
+               Unlock Wallet
+             </li>
+
+             <li class="metaportal_fn_button wallet_opener" *ngIf="dataService.metaDeatails.isMetaLogin">
+               Approve
+             </li>
+           </ul>
+         </div>
+       </div>
+
+     </div>
+     <div class="swiper-slide mr-3 col-md-4 col-sm-12">
+       <div class="item">
+<!--         <span class="icon"></span>-->
+         <span class="phase bg-warning text-dark font-weight-bold">Your Lottery Winnings</span>
+         <div class="item_in ">
+           <div class="title row" >
+             <div class="col-12  mb-4">
+               {{dataService.projectDetails.tokenName}} Stats
+             </div>
+             <div class="col-12  mt-4">
+               <span class="text-sm">Total {{dataService.projectDetails.tokenName}} Supply</span><span class="text-warning ml-1">{{governanceTokenSupply | number: dataService.fixNumber}}</span>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="swiper-slide col-sm-12 col-md-auto">
+       <div class="item">
+<!--         <span class="icon"></span>-->
+         <span class="phase bg-warning text-dark font-weight-bold">Collected</span>
+         <div [routerLink]="'/user'" >
+           <div class="title p-3 pt-4" >
+             <div >
+               <p>Total Collected<span class="ml-3 text-warning">{{profile.count}}</span></p>
+
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div >
+
+     <!-- <div class="col-md-6 col-lg-4">
+       <div class="card grey-cnt">
+         <div class="card-body">
+           <p>Your Lottery Winnings</p>
+           <div class="cardcontent">
+               <div class="cardcakevalue"> {{dataService.projectDetails.tokenName}} in Wallet</div>
+               <div class="cakeno">{{governanceTokenBalance | number: dataService.fixNumber}}
+                   {{dataService.projectDetails.tokenName}}</div>
+               <div class="LockedTxt"> <i class="fas fa-lock-alt"></i>&nbsp;Locked </div>
+           </div>
+           <div class="row justify-content-center mt-4">
+               <div class="col-lg-10 col-md-12 col-12">
+                   <button (click)="goto('lottery')" class="btn default-btn btn-block"
+                       type="button">
+                       <ng-container *ngIf="!dataService.metaDeatails.isMetaLogin">
+                           Unlock Wallet
+                       </ng-container>
+
+                       <ng-container *ngIf="dataService.metaDeatails.isMetaLogin">
+                           <span [routerLink]="['/lottery']">Collect Lottery</span>
+                       </ng-container>
+                   </button>
+               </div>
+           </div>
+         </div>
+       </div>
+     </div> -->
+
+
+
+
+<!--     <div class="col-md-6 col-lg-4 d-flex justify-content-center align-items-center">-->
+<!--       <div class="d-flex justify-content-around w-100"> <a href="" class="d-flex flex-column justify-content-center align-items-center"> <img src="assets/images/send-icon.png">-->
+<!--         <p class="text-center mt-2">Send</p>-->
+<!--         </a> <a href="" class="d-flex flex-column justify-content-center align-items-center"> <img src="assets/images/receive-icon.png">-->
+<!--         <p class="text-center mt-2">Receive</p>-->
+<!--         </a> </div>-->
+<!--     </div>-->
+     <!-- <div class="col-lg-12">
+       <h3 class="section-title">Offers</h3>
+     </div> -->
+   </div>
+ </section>
+
+
+

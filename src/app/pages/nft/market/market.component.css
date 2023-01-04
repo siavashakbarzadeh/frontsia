@@ -1,0 +1,17 @@
+.metaportal_fn_button{
+  text-decoration: none;
+}
+.img_avatar{
+  width: 30px;
+  height: 30px;
+}
+.mag_card{
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.5);
+  background-color: rgba(255,255,255,.05);
+  position: relative;
+}
+.price_cr{
+
+}

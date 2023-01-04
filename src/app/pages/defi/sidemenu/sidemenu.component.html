@@ -1,0 +1,36 @@
+<section   >
+  <nav class="navbar-expand-lg d-flex " >
+
+      <div class="collapse navbar-collapse " [class.collapse]="navbarCollapsed" id="navbarSupportedContent">
+        <div class="user-dashboard-sidebar-menu">
+          <ul >
+            <!-- <li><a [routerLink]="'/'"><img src="assets/images/sidebar-dsb-icon.png" class="img-fluid"><span>Home</span></a></li> -->
+            <li><a class="creative_link mb-3" [routerLink]="'/dashboard'" [ngClass]="{'active':url=='dashboard'}" (click)="sideclick('dashboard')"><span >Dashboard</span></a></li>
+            <!--          <li><a class="creative_link" [routerLink]="'/dashboard'" [ngClass]="{'active':url=='dashboard'}" (click)="sideclick('dashboard')"><img src="assets/images/sidebar-dsb-icon.png" ><span >Dashboard</span></a></li>-->
+            <li><a class="creative_link mb-3" [routerLink]="'/trade'" [ngClass]="{'active':url=='trade'}" (click)="sideclick('trade')"><i class="fa-solid fa-gauge-high"></i><span >Trade</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/trade'" [ngClass]="{'active':url=='trade'}" (click)="sideclick('trade')"><span >My wallet</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/trade'" [ngClass]="{'active':url=='trade'}" (click)="sideclick('trade')"><span >My artwork</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/trade'" [ngClass]="{'active':url=='trade'}" (click)="sideclick('trade')"><span >My earning</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/trade'" [ngClass]="{'active':url=='trade'}" (click)="sideclick('trade')"><span >Deposit History</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/trade'" [ngClass]="{'active':url=='trade'}" (click)="sideclick('trade')"><span >Withdraw History</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/trade'" [ngClass]="{'active':url=='trade'}" (click)="sideclick('trade')"><span >Purchase</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/trade'" [ngClass]="{'active':url=='trade'}" (click)="sideclick('trade')"><span >Bid</span></a></li>
+            <!-- <li><a [routerLink]="'/farm'" [ngClass]="{'active':url=='farm'}" (click)="sideclick('farm')"><img src="assets/images/sidebar-farm-icon.png" class="img-fluid"><span>Farms</span></a></li> -->
+            <li><a class="creative_link mb-3" [routerLink]="'/staking'" [ngClass]="{'active':url=='staking'}" (click)="sideclick('staking')"><span >Staking</span></a></li>
+            <!-- <li><a [routerLink]="'/reference-links'" [ngClass]="{'active':url=='reference-links'}" (click)="sideclick('reference-links')"><img src="assets/images/sidebar-ref-icon.png" class="img-fluid"><span>Reference Links</span></a></li> -->
+            <li><a class="creative_link mb-3" [routerLink]="'/collection'" [ngClass]="{'active':url=='collection'}" (click)="sideclick('collection')"><span >Collection</span></a></li>
+
+            <li><a class="creative_link mb-3" [routerLink]="'/import'" [ngClass]="{'active':url=='import'}" (click)="sideclick('import')"><span >Import NFT</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/user'" [ngClass]="{'active':url=='user'}" (click)="sideclick('profile')"><span >Profile</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/history'" [ngClass]="{'active':url=='history'}" (click)="sideclick('history')"><span >History</span></a></li>
+            <li><a class="creative_link mb-3" [routerLink]="'/settings'" [ngClass]="{'active':url=='settings'}" (click)="sideclick('settings')"><span >Settings</span></a></li>
+            <li *ngIf="dataService.metaDeatails?.accountShort"><a class="creative_link" (click)="logout()" [ngClass]="{'active':url=='logout'}" (click)="sideclick('logout')"><span >Logout</span></a></li>
+          </ul>
+        </div>
+
+      </div>
+      <button class="navbar-toggler sidemenubar" type="button" data-toggle="collapse" (click)="toggleNavbarCollapsing()" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"> <span class="navbar-toggler-icon side-icon"></span> </button>
+
+  </nav>
+</section>
+

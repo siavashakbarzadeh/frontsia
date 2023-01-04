@@ -1,0 +1,180 @@
+<app-inner-header></app-inner-header>
+<!-- Content -->
+<div class="metaportal_fn_content">
+
+  <div class="metaportal_fn_pagetitle">
+
+    <div class="container small">
+      <div class="pagetitle">
+        <h3 class="fn__maintitle big" data-text="Market" data-align="center">Market</h3>
+        <p>
+          <a href="index.html">Buy NFT's Here</a>
+<!--          <span class="divider">/</span>-->
+<!--          <span class="text">Collection</span>-->
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Divider -->
+  <div class="fn_cs_section_divider">
+    <div class="divider">
+      <span class="short"></span>
+      <span class="long"></span>
+      <span class="short"></span>
+    </div>
+  </div>
+  <!-- !Section Divider -->
+  <p>{{items.length}}</p>
+<div class="digital-art-sec">
+    <div class="middle-section">
+        <div class="container">
+
+            <div class=" row">
+
+
+                <div class="col-lg-3 card mag_card" *ngFor="let item of items;let i = index">
+                  <div >
+
+                    <div class="act-cnt card-body" *ngIf="item.show">
+                      <div class="act-head d-flex align-items-center justify-content-between px-2 mb-3">
+                        <a (click)="getUserFunc(item.userId)">
+                          <div class="d-flex">
+                            <div class="prof-pic-cnt mr-3">
+
+
+                              <img class="img_avatar" *ngIf="item.profilepicture !='' " src="{{ (item.profilepicture) ? item.profilepicture : 'assets/images/prof.png' }}">
+                              <img class="img_avatar" *ngIf="item.profilepicture =='' " src="assets/images/prof.png">
+
+                            </div>
+                            <div>
+                              <h3 class="mb-0">{{item.username}}</h3>
+
+                              <p class="mb-0">Artist</p>
+                            </div>
+                          </div>
+                        </a>
+                        <a (click)="getUserFunc(item.ownerId)">
+                          <div class="d-flex">
+                            <div class="mr-3">
+                              <h3 class="mb-0">{{item.ownername}}</h3>
+                              <p class="mb-0">Owner</p>
+                            </div>
+                            <div class="prof-pic-cnt ">
+                              <!-- <img src="{{ (item.ownerpicture) ? item.ownerpicture : 'assets/images/prof1.png' }}"> -->
+
+                              <img class="img_avatar" *ngIf="item.ownerpicture !=''" src="{{ (item.ownerpicture) ? item.ownerpicture : 'assets/images/prof1.png' }}">
+                              <img class="img_avatar" *ngIf="item.ownerpicture ==''" src="assets/images/prof1.png">
+
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <a (click)="myFunc1(item._id)">
+                        <img class="img_avatar" *ngIf="item.image != ''" src="{{item.image}}" >
+
+                        <img class="img_avatar" *ngIf="item.image == ''"  src="assets/images/market1.png" >
+                      </a>
+                      <div class="act-head">
+                        <h3>{{item.name}}</h3>
+                        <h3>{{item.status}}</h3>
+                        <div class="border-bottom"></div>
+                        <div class="row mt-2">
+                          <div class="col-sm-4 col-md-4 text-center col-lg-4 col-xl-4 border-right">
+                            <h6 class="mb-0">{{item.price}} {{item.tocurrency}}</h6>
+                            <p class="mb-2">Price</p>
+                          </div>
+                          <div class="col-sm-4 col-md-4 text-center col-lg-4 col-xl-4 border-right">
+                            <h3 class="mb-0">{{item.supply}}</h3>
+                            <p class="mb-2">Suppply</p>
+                          </div>
+                          <div class="col-sm-4 col-md-4 text-center col-lg-4 col-xl-4">
+                            <img class="img_avatar" src="assets/images/heart.png" (click)="addLike(item)" *ngIf="item.fav">
+                            <img class="img_avatar" src="assets/images/heart-icon.png" (click)="addLike(item)" *ngIf="!item.fav">
+                            <h6 class="mb-2">{{item.likeCount}}Favorites</h6>
+                          </div>
+                          <div *ngIf="item.canbuy && item.type == 'add'" class="text-xl-center text-sm-center mb-2">
+                            <a (click)="myFunc(item._id)" class="btn default-btn type-btn"><span>buy now</span></a>
+                          </div>
+                          <div *ngIf="item.canbuy && item.type != 'add'" class="text-xl-center text-sm-center mb-2">
+                            <a class="metaportal_fn_button" (click)="myFunc1(item._id)" ><span>buy now</span></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12 text-center" *ngIf="!items.show && items.length == 1">No Items to display</div>
+
+                  </div>
+
+                </div>
+                <button class="btn default-btn mt-4" (click)="loadmore(skip)"  *ngIf="items.length > 5">Load more</button>
+
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12 text-center" *ngIf="items.length == 0">No Items to display</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade modalPrimary md creat-collection" id="Bidapp">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0 d-block">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center align-items-start">
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                        <div class="blog-sec-cnt">
+                            <div class="d-lg-flex align-items-center">
+                                <img class="img_avatar" src="assets/images/app1.png" class="img-fluid mr-3">
+                                <div class="text-left">
+                                    <p class="font-16 fontweight-500 text-black mt-2 mb-4">Bids placed during an auction cannot be withdrawn. By placing a bid you indicate that you have read and agree to the Auction Terms of Use</p>
+                                    <p class="font-16 fontweight-500 text-black mb-2">Current Bid</p>
+                                    <p class="font-28 font-weight-bold text-black mb-0">0.1 ETH (~$242)</p>
+                                </div>
+                            </div>
+                            <h5 class="font-16 fontweight-500 mt-4 text-black mb-2">OLIVER CROMWELL - AI "AFTER</h5>
+                            <div class="row tabpages-cnt p-0 w-auto">
+                                <div class="col-md-6 col-sm-6 col-xl-4 col-lg-6 mt-3">
+                                    <div class="card grey-cnt text-center">
+                                        <div class="card-body">
+                                            <p>Total Bit Amount</p>
+                                            <h3 class="font-16 fontweight-500">0 BNB</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xl-4 col-lg-6 mt-3">
+                                    <div class="card grey-cnt text-center">
+                                        <div class="card-body">
+                                            <p>Your Balance</p>
+                                            <h3 class="font-16 fontweight-500">0 BNB</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3 ">
+                                <div class="d-flex justify-content-between bid-block">
+                                    <label class="mb-0 pb-0 font-18 font-weight-bold text-black mb-2" for="yourName">You must bid at least </label>
+                                    <label class="mb-0 pb-0 font-18 font-weight-bold text-black mb-2" for="yourName">0.11 BNB (~$266) </label>
+                                </div>
+                                <input type="text" class="form-control input-sec font-16 fontweight-400" placeholder="Place your Bid">
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn  mt-4 mr-3">
+                                Never Mind</button>
+                                <button class="btn fontweight-500 default-btn mt-4">
+                                Submit Bid</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+  <app-inner-footer></app-inner-footer>
